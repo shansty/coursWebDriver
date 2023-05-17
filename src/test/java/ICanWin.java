@@ -6,20 +6,18 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 
-import java.util.concurrent.TimeUnit;
-
-public class TestWebDriver {
+public class ICanWin {
     ChromeDriver driver;
 
     @BeforeAll
     public void prepareToStartTest(){
         ChromeDriver driver = new ChromeDriver();
         this.driver = driver;
+        driver.get("https://pastebin.com");
     }
 
     @Test
     public void testWebDriver() throws InterruptedException {
-        driver.get("https://pastebin.com");
         WebElement kodeInput = driver.findElement(By.xpath("//*[@id=\"postform-text\"]"));
         kodeInput.sendKeys("Hello from WebDriver");
         WebElement pastName = driver.findElement(By.xpath("//*[@id=\"postform-name\"]"));
