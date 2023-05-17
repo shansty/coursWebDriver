@@ -1,18 +1,13 @@
-import org.junit.jupiter.api.AfterAll;
-import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.*;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 
 public class ICanWin {
     ChromeDriver driver;
-
-    @BeforeAll
+    @BeforeEach
     public void prepareToStartTest(){
-        ChromeDriver driver = new ChromeDriver();
-        this.driver = driver;
+        driver = new ChromeDriver();
         driver.get("https://pastebin.com");
     }
 
@@ -33,9 +28,8 @@ public class ICanWin {
         Assertions.assertEquals("Hello from WebDriver", actualResult);
     }
 
-        @AfterAll
-        public void closeTests() throws InterruptedException {
-            Thread.sleep(4000);
+        @AfterEach
+        public void closeTests() {
             driver.quit();
         }
 
